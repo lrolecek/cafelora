@@ -1,5 +1,7 @@
 import './style.css';
 
+import mapPath from './img/map.png';
+
 export const Contact = () => {
 	const element = document.createElement('section');
 	element.id = 'contact';
@@ -22,7 +24,7 @@ export const Contact = () => {
 				</table>
 				<img
 					class="contact__map"
-					src="./img/map.png"
+					src="${mapPath}"
 				/>
 			</div>
 		</div>

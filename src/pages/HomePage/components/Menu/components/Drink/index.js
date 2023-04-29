@@ -16,15 +16,33 @@ export const Drink = (props) => {
 			</div>
 		</div>
 		<div class="drink__controls">
-			<button class="order-btn">
-				Objednat
+			<button class="order-btn ${ ordered ? 'order-btn__ordered' : '' }">
+				${ ordered ? 'Zrušit' : 'Objednat' }
 			</button>
 		</div>
 	`;
 
 	element.querySelector('.drink__info').append(
 		...layers.map((layer) => Layer(layer))
-	)
+	);
+
+	element.querySelector('.order-btn').addEventListener('click', () => {
+		console.log('click')
+		fetch(`https://cafelora.kodim.app/api/me/drinks/${id}`, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${localStorage.getItem('token')}`
+			},
+			body: JSON.stringify({
+				ordered: !ordered
+			})
+		})
+		.then((response) => response.json())
+		.then((data) => {
+			element.replaceWith(Drink(data.result))
+		})
+	})
 
 	return element;
 }
