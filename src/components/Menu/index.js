@@ -1,6 +1,6 @@
 import './style.css';
 
-import { Drink } from './Drink';
+import { Drink } from './components/Drink';
 
 const fakeDrink= {
   id: 'romano',
