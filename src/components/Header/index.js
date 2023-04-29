@@ -24,7 +24,9 @@ export const Header = () => {
 		document.querySelector('.rollout-nav').classList.toggle('nav-closed');
 	});
 
-	element.querySelector('.rollout-nav')
+	element.querySelector('.rollout-nav').addEventListener('click', () => {
+		document.querySelector('.rollout-nav').classList.add('nav-closed');
+	});
 
 	return element;
 }
