@@ -2,24 +2,9 @@ import './style.css';
 
 import { Drink } from './components/Drink';
 
-const fakeDrink= {
-  id: 'romano',
-  name: 'Romano',
-  ordered: false,
-  image: 'https://cafelora.kodim.app/assets/cups/romano.png',
-  layers: [
-    {
-      color: '#fbdf5b',
-      label: 'citrón',
-    },
-    {
-      color: '#613916',
-      label: 'espresso',
-    },
-  ]
-};
+export const Menu = (props) => {
+	const { drinks } = props;
 
-export const Menu = () => {
 	const element = document.createElement('section');
 	element.classList.add('menu');
 	element.id = 'menu';
@@ -37,11 +22,22 @@ export const Menu = () => {
 		</div>
 	`;
 
-	element.querySelector('.drinks-list').append(
-		Drink(fakeDrink),
-		Drink(fakeDrink),
-		Drink(fakeDrink),
-	)
+	if (drinks === 'loading') {
+		fetch('https://cafelora.kodim.app/api/me/drinks', {
+			method: 'GET',
+			headers: {
+				'Authorization': `Bearer ${localStorage.getItem('token')}`
+			}
+		})
+		.then((response) => response.json())
+		.then((data) => {
+			element.replaceWith(Menu({ drinks: data.result }));
+		});
+	} else {
+		element.querySelector('.drinks-list').append(
+			...drinks.map((drink) => Drink(drink))
+		);
+	}
 
 	return element;
 }
