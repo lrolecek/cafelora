@@ -1,9 +1,8 @@
 import './style.css';
 
-import mapImg from './img/map.png';
-
-const Contact = () => {
+export const Contact = () => {
 	const element = document.createElement('section');
+	element.id = 'contact';
 	element.innerHTML =  `
 		<div class="container">
 			<h2>Kde nás najdete</h2>
@@ -23,7 +22,7 @@ const Contact = () => {
 				</table>
 				<img
 					class="contact__map"
-					src="${mapImg}"
+					src="./img/map.png"
 				/>
 			</div>
 		</div>
@@ -31,5 +30,3 @@ const Contact = () => {
 
 	return element;
 }
-
-export default Contact;

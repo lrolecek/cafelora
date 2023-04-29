@@ -1,11 +1,12 @@
 import './style.css';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Banner from './components/Banner';
-import Menu from './components/Menu';
-import Gallery from './components/Gallery';
-import Contact from './components/Contact';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Banner } from './components/Banner';
+import { Menu } from './components/Menu';
+import { Gallery } from './components/Gallery';
+import { Contact } from './components/Contact';
+
 
 console.log('funguju!');
 

@@ -1,6 +1,6 @@
 import './style.css';
 
-const Banner = () => {
+export const Banner = () => {
 	const element = document.createElement('section');
 	element.classList.add('banner');
 	element.innerHTML =  `
@@ -14,5 +14,3 @@ const Banner = () => {
 
 	return element;
 }
-
-export default Banner;

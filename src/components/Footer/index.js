@@ -1,6 +1,6 @@
 import './style.css';
 
-const Footer = () => {
+export const Footer = () => {
 	const element = document.createElement('footer');
 	element.innerHTML =  `
 		<div class="container">
@@ -12,5 +12,3 @@ const Footer = () => {
 
 	return element;
 }
-
-export default Footer;

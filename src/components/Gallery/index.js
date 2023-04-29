@@ -1,8 +1,9 @@
 import './style.css';
 
-const Gallery = () => {
+export const Gallery = () => {
 	const element = document.createElement('section');
 	element.classList.add('gallery');
+	element.id = 'gallery';
 	element.innerHTML =  `
 		<div class="container">
 			<div class="gallery__content">
@@ -28,5 +29,3 @@ const Gallery = () => {
 
 	return element;
 }
-
-export default Gallery;

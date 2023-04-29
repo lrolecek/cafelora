@@ -1,7 +1,8 @@
 import './style.css';
 
-const Header = () => {
+export const Header = () => {
 	const element = document.createElement('header');
+	element.id = 'home';
 	element.innerHTML =  `
 		<div class="header__content container">
 			<div class="site-logo"></div>
@@ -19,7 +20,11 @@ const Header = () => {
 		</div>
 	`;
 
+	element.querySelector('.nav-btn').addEventListener('click', () => {
+		document.querySelector('.rollout-nav').classList.toggle('nav-closed');
+	});
+
+	element.querySelector('.rollout-nav')
+
 	return element;
 }
-
-export default Header;
