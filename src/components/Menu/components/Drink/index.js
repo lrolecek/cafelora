@@ -1,12 +1,6 @@
 import './style.css';
 import { Layer } from '../Layer';
 
-const fakeLayer = {
-  color: '#feeeca',
-  label: 'mléčná pěna',
-};
-
-
 export const Drink = (props) => {
 	const {id, name, ordered, image, layers} = props;
 
@@ -29,8 +23,7 @@ export const Drink = (props) => {
 	`;
 
 	element.querySelector('.drink__info').append(
-		Layer(fakeLayer),
-		Layer(fakeLayer),
+		...layers.map((layer) => Layer(layer))
 	)
 
 	return element;
